@@ -1,0 +1,10 @@
+{
+  "name": "scriptable-player-prefs",
+  "version": "1.0.0",
+  "displayName": "Scriptable Player Prefs",
+  "description": "Simple utility that uses scriptable objects to save and load data using player prefs, you can view, modify and clear the data saved on inspector and reference them from any script.",
+  "author": {
+    "name": "Lucas Gaspar",
+    "email": "lucas.gaspar.e@gmail.com"
+  }
+}
