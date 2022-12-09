@@ -61,6 +61,7 @@ namespace LG.ScriptablePlayerPrefs
         {
             if (string.IsNullOrEmpty(HashCode))
                 return;
+                
             if (typeof(T) == typeof(string))
                 UnityEngine.PlayerPrefs.SetString(HashCode, (string)(object)value);
             else

@@ -88,10 +88,10 @@ public class CountElapsedTime : MonoBehaviour
 }
 ```  
 Create new save data asset by right clicking the Project window:  
-<img width="674" alt="Create new save data asset" src="https://user-images.githubusercontent.com/7684147/206793500-458788ff-3bca-4e29-8f38-477b314e9a4d.png">  
+<img width="632" alt="Create new save data asset" src="https://user-images.githubusercontent.com/7684147/206793500-458788ff-3bca-4e29-8f38-477b314e9a4d.png">  
 Assign save data asset:  
 ![Assign save data](https://user-images.githubusercontent.com/7684147/206793813-78d3ae6b-db11-44ed-bfd4-ea762bd92e2a.gif)  
-The data is saved when the application stops and you can change the value trough the inspector:  
+In this example the data is saved when the application stops and you can change the value trough the inspector:  
 ![Save and modify data](https://user-images.githubusercontent.com/7684147/206793908-f4751bd1-71c7-4bea-a91f-a5596abc36f3.gif)  
 And you can clear the data any time  
 ![Clear data](https://user-images.githubusercontent.com/7684147/206793975-a9130d21-28ff-44cc-b62a-704fff308067.gif)
