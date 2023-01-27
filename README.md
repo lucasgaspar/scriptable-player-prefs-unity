@@ -5,12 +5,12 @@ Use the package manager to add the following git URL:
 >`https://github.com/lucasgaspar/scriptable-player-prefs-unity.git`
 ## Usage
 Create a new Save Data from the Project window:  
-`Create` -> `Scriptable Player Prefs` -> `Scriptable Player Pref`.  
+`Create` -> `Scriptable Player Pref`.  
 The asset will use his GUID as the key to save the data, renaming it or moving it to another folder will not change the key used to save the information.
 
 On a script you must first include the library:  
 ```csharp
-using LG.ScriptablePlayerPrefs;
+using ScriptablePlayerPrefs;
 ```  
 Expose the field to the inspector to assign the save data asset:  
 ```csharp
