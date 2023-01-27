@@ -59,9 +59,6 @@ namespace ScriptablePlayerPrefs
 
         public void Set<T>(T value)
         {
-            if (string.IsNullOrEmpty(HashCode))
-                return;
-
             if (typeof(T) == typeof(string))
                 PlayerPrefs.SetString(HashCode, (string)(object)value);
             else
