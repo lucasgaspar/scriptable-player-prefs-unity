@@ -1,8 +1,7 @@
-using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace LG.ScriptablePlayerPrefs
+namespace ScriptablePlayerPrefs
 {
     [CustomEditor(typeof(ScriptablePlayerPref))]
     public class ScriptablePlayerPrefEditor : Editor
@@ -13,7 +12,7 @@ namespace LG.ScriptablePlayerPrefs
         private const string ButtonClearData = "Clear data";
 
         private ScriptablePlayerPref _saveData = null;
-        private string _message = String.Empty;
+        private string _message = string.Empty;
 
         #endregion
 
@@ -22,7 +21,7 @@ namespace LG.ScriptablePlayerPrefs
         public void OnEnable()
         {
             _saveData = (ScriptablePlayerPref)target;
-            _message = _saveData.Load<string>(String.Empty);
+            _message = _saveData.Get(string.Empty);
         }
 
         public override void OnInspectorGUI()
@@ -39,10 +38,10 @@ namespace LG.ScriptablePlayerPrefs
                 return;
 
             _message = newMessage;
-            if (String.IsNullOrEmpty(_message))
+            if (string.IsNullOrEmpty(_message))
                 _saveData.Clear();
             else
-                _saveData.Save<string>(_message);
+                _saveData.Set(_message);
         }
 
         private void RenderClearButton()
@@ -51,7 +50,7 @@ namespace LG.ScriptablePlayerPrefs
                 return;
 
             _saveData.Clear();
-            _message = String.Empty;
+            _message = string.Empty;
         }
 
         #endregion
