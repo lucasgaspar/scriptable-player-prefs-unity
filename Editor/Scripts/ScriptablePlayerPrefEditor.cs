@@ -10,6 +10,7 @@ namespace ScriptablePlayerPrefs
 
         private const string FieldSavedData = "Saved data";
         private const string ButtonClearData = "Clear data";
+        private const string GUIDLabelFormat = "GUID: {0}";
 
         private ScriptablePlayerPref _saveData = null;
         private string _message = string.Empty;
@@ -29,6 +30,8 @@ namespace ScriptablePlayerPrefs
             base.OnInspectorGUI();
             RenderSavedDataField();
             RenderClearButton();
+            EditorGUILayout.Space();
+            RenderGUIDLabel();
         }
 
         private void RenderSavedDataField()
@@ -51,6 +54,15 @@ namespace ScriptablePlayerPrefs
 
             _saveData.Clear();
             _message = string.Empty;
+        }
+
+        private void RenderGUIDLabel()
+        {
+            string guid = _saveData.GUID;
+            if (string.IsNullOrEmpty(guid))
+                return;
+
+            EditorGUILayout.LabelField(string.Format(GUIDLabelFormat, guid), EditorStyles.centeredGreyMiniLabel);
         }
 
         #endregion
