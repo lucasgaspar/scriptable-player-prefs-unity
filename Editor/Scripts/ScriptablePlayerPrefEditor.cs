@@ -8,8 +8,9 @@ namespace ScriptablePlayerPrefs
     {
         #region FIELDS
 
-        private const string FieldSavedData = "Saved data";
-        private const string ButtonClearData = "Clear data";
+        private const string CustomKeyLabel = "Custom Key";
+        private const string FieldSavedDataLabel = "Saved data";
+        private const string ButtonClearDataLabel = "Clear data";
         private const string GUIDLabelFormat = "GUID: {0}";
 
         private ScriptablePlayerPref _saveData = null;
@@ -28,15 +29,34 @@ namespace ScriptablePlayerPrefs
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
+            RenderCustomKeyField();
             RenderSavedDataField();
             RenderClearButton();
             EditorGUILayout.Space();
             RenderGUIDLabel();
         }
 
+        private void RenderCustomKeyField()
+        {
+            string newKey = EditorGUILayout.TextField(CustomKeyLabel, _saveData.CustomKey);
+            if (newKey == _saveData.CustomKey)
+                return;
+
+            if (string.IsNullOrEmpty(newKey))
+            {
+                _saveData.CustomKey = null;
+            }
+            else
+            {
+                _saveData.CustomKey = newKey;
+            }
+
+            _message = _saveData.Get(string.Empty);
+        }
+
         private void RenderSavedDataField()
         {
-            string newMessage = EditorGUILayout.TextField(FieldSavedData, _message);
+            string newMessage = EditorGUILayout.TextField(FieldSavedDataLabel, _message);
             if (newMessage == _message)
                 return;
 
@@ -49,7 +69,7 @@ namespace ScriptablePlayerPrefs
 
         private void RenderClearButton()
         {
-            if (!GUILayout.Button(ButtonClearData))
+            if (!GUILayout.Button(ButtonClearDataLabel))
                 return;
 
             _saveData.Clear();

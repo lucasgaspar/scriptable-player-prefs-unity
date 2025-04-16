@@ -12,10 +12,23 @@ namespace ScriptablePlayerPrefs
         protected const string PlayerPrefFormat = "PlayerPref/{0}";
 
         [SerializeField, HideInInspector] private string _guid = null;
+        [SerializeField, HideInInspector] private string _customKey = null;
 
         #endregion
 
         #region PROPERTIES
+
+        public string CustomKey
+        {
+            get
+            {
+                return _customKey;
+            }
+            set
+            {
+                _customKey = value;
+            }
+        }
 
         public string GUID
         {
@@ -32,6 +45,9 @@ namespace ScriptablePlayerPrefs
         {
             get
             {
+                if (!string.IsNullOrEmpty(_customKey))
+                    return _customKey;
+
                 if (string.IsNullOrEmpty(GUID))
                     return string.Empty;
 
