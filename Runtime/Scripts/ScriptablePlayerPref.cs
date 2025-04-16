@@ -27,6 +27,10 @@ namespace ScriptablePlayerPrefs
             set
             {
                 _customKey = value;
+#if UNITY_EDITOR
+                UnityEditor.EditorUtility.SetDirty(this);
+                UnityEditor.AssetDatabase.SaveAssets();
+#endif
             }
         }
 
