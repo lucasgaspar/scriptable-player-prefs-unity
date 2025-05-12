@@ -83,11 +83,11 @@ namespace ScriptablePlayerPrefs
                 if (typeof(T) == typeof(string))
                     return (T)(object)savedValue;
                 else if (typeof(T) == typeof(int))
-                    return (T)(object)int.Parse(savedValue);
+                    return (T)(object)int.Parse(savedValue, System.Globalization.CultureInfo.InvariantCulture);
                 else if (typeof(T) == typeof(float))
-                    return (T)(object)float.Parse(savedValue);
+                    return (T)(object)float.Parse(savedValue, System.Globalization.CultureInfo.InvariantCulture);
                 else if (typeof(T) == typeof(long))
-                    return (T)(object)long.Parse(savedValue);
+                    return (T)(object)long.Parse(savedValue, System.Globalization.CultureInfo.InvariantCulture);
                 else if (typeof(T) == typeof(bool))
                     return (T)(object)bool.Parse(savedValue);
                 else
